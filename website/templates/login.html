@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+<form method="post">
+    <div style="    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;padding-top: 80px;">
+
+        <div>
+            <h1 align="center" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Log-in</h1>
+
+            <div class="form-group" style="padding-top: 50px;">
+                <label for="email">Email Address</label>
+                <input type="text" id="email" name="email" class="form-control" placeholder="email address"
+                    style="width: 500px;"><br />
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="password"
+                    style="width: 500px;">
+                <br />
+                <div align="center">
+                    <button class="btn btn-primary" type="submit">Login</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

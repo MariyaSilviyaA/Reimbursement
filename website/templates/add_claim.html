@@ -1,0 +1,85 @@
+{% extends'base.html' %}
+
+
+
+{% block content %}
+
+
+<!-- <form method="POST">
+    <div
+        style="display: flex;justify-content: center;align-items: center; flex-direction: column; gap:20px; padding-top: 75px;">
+        <h4>Reimbursement Form</h4>
+
+        <div class="form-group">
+            <label for="company_id ">Company ID</label>
+            <input type="number" class="form-control" id="company_id " name="company_id " style="width: 500px;"
+                value="{{ company.id if company is not none else '' }}">
+        </div>
+
+        <div class="form-group">
+            <label for="employee_id">Employee ID</label>
+            <input type="number" class="form-control" id="employee_id" name="employee_id" style="width: 500px;"
+                value="{{ employee.id if employee is not none else '' }}">
+        </div>
+
+        <div class="form-group">
+            <label for="date_of_expense">Date of Expense</label>
+            <input type="date" class="form-control" id="date_of_expense" name="date_of_expense" style="width: 500px;">
+        </div>
+        <div class="form-group">
+            <label for="product">Product</label>
+            <input type="text" class="form-control" id="product" name="product" style="width: 500px;">
+        </div>
+        <div class="form-group">
+            <label for="amount">Amount</label>
+
+            <input type="text" class="form-control" id="amount" name="amount" style="width: 500px;" placeholder=" $">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" name="description" style="width: 500px;"></textarea>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Claim</button>
+            <a href="{{ url_for('views.company_details', company_id=company.id) }}"><button type="button"
+                    class="btn btn-secondary" style="margin-top: 20px;">Cancel</button></a>
+        </div>
+    </div>
+</form> -->
+
+<h1>Add Reimbursement Claim</h1>
+<form method="post" action="{{ url_for('add_claim') }}">
+    <p>
+        <label for="company_id">Company ID:</label>
+        <input type="number" id="company_id" name="company_id" value="{{ company.id if company else '' }}" required>
+    </p>
+    <p>
+        <label for="employee_id">Employee ID:</label>
+        <input type="number" id="employee_id" name="employee_id" value="{{ employee.id if employee else '' }}" required>
+    </p>
+    <p>
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" name="amount" step="0.01" required>
+    </p>
+    <p>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea>
+    </p>
+    <p>
+        <label for="product">Product:</label>
+        <input type="text" id="product" name="product" required>
+    </p>
+    <p>
+        <input type="submit" value="Submit">
+    </p>
+</form>
+
+
+
+
+
+
+
+
+
+{% endblock%}

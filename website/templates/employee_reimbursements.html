@@ -1,0 +1,40 @@
+{% extends'base.html' %}
+
+
+
+{% block content %}
+
+<form method="POST">
+    <div
+        style="display: flex;justify-content: center;align-items: center; flex-direction: column; gap:20px; padding-top: 75px;">
+        <h4>Reimbursement Form</h4>
+
+
+        <div class="form-group">
+            <label for="date_of_expense">Date of Expense</label>
+            <input type="date" class="form-control" id="date_of_expense" name="date_of_expense" style="width: 500px;">
+        </div>
+        <div class="form-group">
+            <label for="product">Product</label>
+            <input type="text" class="form-control" id="product" name="product" style="width: 500px;">
+        </div>
+        <div class="form-group">
+            <label for="amount">Amount</label>
+
+            <input type="text" class="form-control" id="amount" name="amount" style="width: 500px;" placeholder=" $">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" name="description" style="width: 500px;"></textarea>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Claim</button>
+            <a href="{{ url_for('views.company_details', company_id=company.id) }}"><button type="button"
+                    class="btn btn-secondary" style="margin-top: 20px;">Cancel</button></a>
+        </div>
+    </div>
+</form>
+
+
+
+{% endblock %}

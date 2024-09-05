@@ -1,0 +1,34 @@
+{% extends'base.html'%}
+
+{% block content %}
+<div class="welcome-section">
+    <h2>Welcome!</h2>
+    <div class="dcard-container">
+        <div class="dcard" onclick="window.location.href='/home'">
+            <i class="fa-solid fa-house"></i>
+            <a class="nav-item nav-link " href="/home">Home</a>
+
+        </div>
+        <div class="dcard" onclick="window.location.href='/company_list'">
+            <i class="fa-solid fa-business-time"></i>
+
+
+            <a class="nav-item nav-link " href="{{url_for('views.company_list')}}">Company</a>
+        </div>
+        <div class="dcard" onclick="window.location.href='/employees'">
+            <i class="fa-solid fa-users"></i>
+            <a class="nav-item nav-link " href="{{url_for('views.employees')}}">Employee</a>
+        </div>
+        <div class="dcard" onclick="window.location.href='/reimbursements'">
+            <i class="fas fa-dollar-sign"></i>
+            <a class="nav-item nav-link " href="/reimbursements">Claims</a>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+
+
+{% endblock %}

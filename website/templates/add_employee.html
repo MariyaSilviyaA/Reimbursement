@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Add Employee
+{% endblock %}
+
+{% block content %}
+<form method="post">
+    <div
+        style="display: flex; flex-direction: column; justify-content: center; align-items: center; padding-top: 80px;">
+        <h1>Add Employee</h1>
+
+        <div class="form-group" style="padding-top: 50px;">
+            <div class="mb-3">
+                <label for="first_name" class="form-label">First name</label>
+                <input type="text" class="form-control" id="first_name" name="first_name" style="width: 500px;">
+            </div>
+            <div class="mb-3">
+                <label for="last_name" class="form-label">Last name</label>
+                <input type="text" class="form-control" id="last_name" name="last_name" style="width: 500px;">
+            </div>
+            <div class="mb-3">
+                <label for="emp_email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="emp_email" name="email" style="width: 500px;">
+            </div>
+            <div class="mb-3">
+                <label for="salary" class="form-label">Salary</label>
+                <input type="text" class="form-control" id="salary" name="salary" style="width: 500px;" placeholder="$">
+            </div>
+            <div class="mb-3">
+                <label for="hire_date" class="form-label">Hire Date</label>
+                <input type="date" class="form-control" id="hire_date" name="hire_date" style="width: 500px;"
+                    placeholder="DD-MM-YYYY">
+            </div>
+            <input type="hidden" name="company_id" value="{{ company_id }}">
+        </div>
+        <div class="mb-3" align="center">
+            <button type="submit" class="btn btn-primary" style="justify-content: center; width: 150px;">Add
+                Employee</button>
+            <a href="{{ url_for('views.company_details', company_id=company_id) }}">
+                <button type="button" class="btn btn-secondary"
+                    style="justify-content: center; width: 129px;">Back</button>
+            </a>
+        </div>
+    </div>
+</form>
+{% endblock %}

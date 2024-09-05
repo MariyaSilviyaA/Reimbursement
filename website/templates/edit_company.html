@@ -1,0 +1,56 @@
+{% extends'base.html' %}
+
+{% block content %}
+
+
+
+<form method="post">
+    <div style="    display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;padding-top: 80px;">
+
+
+        <h1>Edit Company</h1>
+
+        <div class="form-group" style="padding-top: 50px;">
+
+            <div class="mb-3">
+                <label for="name" class="form-label">Company Name</label>
+                <input type="text" class="form-control" id="name" name="name" value="{{company.name}}"
+                    style="width: 500px;">
+            </div>
+            <div class="mb-3">
+                <label for="location" class="form-label">Location</label>
+                <input type="text" class="form-control" id="location" name="location" value="{{company.location}}"
+                    style="width: 500px;">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" value="{{company.email}}"
+                    style="width: 500px;">
+            </div>
+            <div class="mb-3">
+                <label for="website" class="form-label">Website</label>
+                <input type="text" class="form-control" id="website" name="website" value="{{company.website}}"
+                    style="width: 500px;">
+            </div>
+        </div>
+        <div class="mb-3" align="'center">
+            <button type="submit" class="btn btn-primary" style="justify-content: center; width: 129px;">Submit
+            </button>
+            <a href="{{url_for('views.home')}}" <button class="btn btn-secondary"
+                style="justify-content: center; width: 129px;">Back</button></a>
+
+        </div>
+
+    </div>
+</form>
+
+
+
+
+
+
+
+{% endblock %}

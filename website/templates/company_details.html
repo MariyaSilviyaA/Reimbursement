@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% block title %}
+Company Details
+{% endblock %}
+
+{% block content %}
+
+
+<div style="padding-top: 50px;">
+    <div style="float:right; border-radius: 12px;"> <a href="{{url_for('views.edit_company',company_id=company.id)}}"
+            class="btn btn-secondary " style="line-height: 0 !important;"><span class="material-symbols-outlined">
+                stylus
+            </span></a>
+    </div>
+    <div style="    display: flex;
+    justify-content: center;
+    align-items: center;">
+        <div class="card">
+            <h2>{{ company.name }}</h2>
+            <div style="display: flex;
+    gap: 30px;padding-top: 10px;">
+                <div>
+                    <p><strong>Email:</strong> {{ company.email }}</p>
+                    <p><strong>Location:</strong> {{ company.location }}</p>
+                </div>
+                <div>
+                    <p><strong>website:</strong> {{ company.website }}</p>
+                    <p><strong>owner_id:</strong> {{ company.user_id }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="padding-top: 40px;">
+    <div style="display: flex;justify-content: space-between;">
+        <div>
+            <h2>Employees</h2>
+        </div>
+        <div>
+            <div style="float:right;padding-right: 2px;"> <a
+                    href="{{url_for('views.add_employee',company_id=company_id)}}" class="btn btn-primary"
+                    style="line-height: 0 !important;"><span class="material-symbols-outlined">
+                        add
+                    </span> </a>
+            </div>
+            <!-- <div style="float:right; padding-right: 2px;"> <a href="{{url_for('views.edit_company',company_id=company_id)}}"
+                class="btn btn-secondary" style="line-height: 0 !important;"><span class="material-symbols-outlined">
+                    stylus
+                </span></a>
+
+
+        </div> -->
+        </div>
+
+    </div>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Salary</th>
+                <th>Hire Date</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for employee in company.employees %}
+            <tr>
+                <td>{{ employee.employee_number }}</td>
+                <td>{{ employee.first_name }}</td>
+                <td>{{ employee.last_name }}</td>
+                <td>{{ employee.email }}</td>
+                <td>${{ employee.salary }}</td>
+                <td>{{ employee.hire_date.strftime('%d-%m-%Y') }}</td>
+                <td>
+                    <div class="d-flex">
+                        <!-- <a href="{{ url_for('views.claim_reimbursement', company_id=company.id,employee_id=employee.id) }}"
+                            class="btn btn-secondary btn-sm me-2 p-1" style="line-height: 0 !important;">
+                            <i class="fa-solid fa-eye"></i></a>  -->
+
+                        <a href="{{ url_for('views.edit_employee', company_id=company.id, employee_id=employee.id) }}"
+                            class="btn btn-secondary btn-sm p-0 me-2" style="line-height: 0 !important;"><span
+                                class="material-symbols-outlined">
+                                stylus
+                            </span></a>
+                        <form method="POST"
+                            action="{{ url_for('views.delete_employee', company_id=company.id, employee_id=employee.id) }}"
+                            style="display:inline;"
+                            onsubmit="return confirm('Are you sure you want to delete this employee?');">
+                            <button type="submit" class="btn btn-danger btn-sm p-0 "
+                                style="line-height: 0 !important;"><span class="material-symbols-outlined">
+                                    delete
+                                </span></button>
+                        </form>
+                    </div>
+                </td>
+                <td><a href="{{ url_for('views.claim_reimbursement', company_id=company.id,employee_id=employee.id) }}"
+                        class="btn btn-primary btn-sm me-2 ">
+                        Claim</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div style="display: flex;justify-content: center;align-items: center;">
+
+    <a href="/">
+        <button type="button" class="btn btn-secondary" style="justify-content: center; width: 129px;">Back</button>
+
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock %}
